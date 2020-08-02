@@ -172,6 +172,15 @@ pascal_sbd_dataset = dataset_base.copy({
     'class_names': PASCAL_CLASSES,
 })
 
+face_mask_dataset = dataset_base.copy({
+  'name': 'Face Mask Detection',
+  'train_info': '<path to dataset>/face_mask/train/coco_annotations.json',
+  'train_images': '<path to dataset>/face_mask/train/images/',
+  'valid_info': '<path to dataset>/face_mask/val/coco_annotations.json',
+  'valid_images': '<path to dataset>/face_mask/val/images/',
+  'class_names': ('face_mask'),
+  'label_map': { 1:  1 }
+})
 
 
 
@@ -765,6 +774,16 @@ yolact_resnet50_pascal_config = yolact_resnet50_config.copy({
         'pred_scales': [[32], [64], [128], [256], [512]],
         'use_square_anchors': False,
     })
+})
+
+yolact_resnet50_face_mask_config = yolact_resnet50_config.copy({
+    'name': 'yolact_plus_resnet50_face_mask',
+    # Dataset stuff
+    'dataset': face_mask_dataset,
+    'num_classes': len(face_mask_dataset.class_names) + 1,
+
+    # Image Size
+    'max_size': 512,
 })
 
 # ----------------------- YOLACT++ CONFIGS ----------------------- #
