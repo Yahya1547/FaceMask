@@ -166,7 +166,7 @@ def parseXmlFiles(xml_path):
                     addAnnoItem(object_name, current_image_id, current_category_id, bbox )
 
 if __name__ == '__main__':
-    xml_path = 'C:/Users/Farid Lazuarda/Documents/Kuliah/Lomba/GEMASTIK XIIi/datasets/Raw/cocoed/Valid/annotations'
+    xml_path = 'C:/Users/Farid Lazuarda/Documents/GitHub/FaceMask/data/FaceMask/Test/annotations'
     json_file = 'instances.json'
     parseXmlFiles(xml_path)
     json.dump(coco, open(json_file, 'w'))
